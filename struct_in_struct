@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+struct pf { //pessoa fisica
+	int cpf;
+	int rg;
+};
+
+struct pj { // pessoa juridica
+	int cnpj;
+	int ie; //inscrição estadual
+};
+
+
+struct pessoa {
+	int telefone;
+	int cep;
+	struct pf fisica;
+	struct pj juridica;
+};
+
+
+int main(){
+	
+	
+	
+	int i, n;
+	
+	
+	printf("Digite o numero de pessoas que voce quer cadastrar: ");
+	scanf("%d", &n);
+	struct pessoa p[n];
+	
+	
+	for(i = 0; i < n; i++){
+		
+		printf("Telefone: ");
+		scanf("%d", &p[i].telefone);
+		printf("CEP: ");
+		scanf("%d", &p[i].cep);
+		printf("CPF: ");
+		scanf("%d", &p[i].fisica.cpf);
+		printf("RG: ");
+		scanf("%d", &p[i].fisica.rg);
+		printf("Cnpj: ");
+		scanf("%d", &p[i].juridica.cnpj);
+		printf("IE: ");
+		scanf("%d", &p[i].juridica.ie);
+	}
+	for(i = 0; i < n; i++){
+		printf("\nTelefone: %d | CEP: %d | CPF: %d | RG: %d | CNPJ: %d | IE: %d", p[i].telefone, p[i].cep, p[i].fisica.cpf, p[i].fisica.rg, p[i].juridica.cnpj, p[i].juridica.ie);
+	}
+	
+	return 0;
+	
+}
